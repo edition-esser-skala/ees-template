@@ -1,6 +1,4 @@
-\version "2.18.0"
-
-#(ly:set-option 'relative-includes #t)
+\version "2.22.0"
 
 \include "scores/full_score.ly"
 
