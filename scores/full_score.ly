@@ -1,11 +1,11 @@
-\version "2.18.0"
+\version "2.22.0"
 
 \include "../definitions.ly"
 
 \paper {
 	#(set-paper-size "a4" 'landscape)
 	indent = 1\cm
-    #(define (page-post-process layout pages) (ly:create-ref-file layout pages))
+  #(define (page-post-process layout pages) (ly:create-ref-file layout pages))
 	#(define (page-post-process layout pages) (ly:create-toc-file layout pages))
 }
 
@@ -22,7 +22,7 @@
 	}
 	\bookpart {
 		\header {
-            genre = "C H O R A L"
+      genre = "C H O R A L"
 			number = "1.1"
 			title = "F I R S T"
 		}
@@ -33,17 +33,22 @@
 			<<
 				\new StaffGroup <<
 					\new GrandStaff <<
-						\set GrandStaff.instrumentName = \markup \center-column { "Clarino" "in C" }
+						\set GrandStaff.instrumentName = "Oboe"
 						\new Staff {
 							\set Staff.instrumentName = "I"
-							% \transpose c c
-							\xxxClarinoI
+							\xxxOboeI
 						}
 						\new Staff {
 							\set Staff.instrumentName = "II"
-							% \transpose c c
-							\xxxClarinoII
+							\xxxOboeII
 						}
+					>>
+				>>
+				\new StaffGroup <<
+					\new Staff <<
+						\set Staff.instrumentName = \markup \center-column { "Clarino I, II" "in C" }
+						% \transpose c c
+						\partCombine \xxxClarinoI \xxxClarinoII
 					>>
 				>>
 				\new Staff {

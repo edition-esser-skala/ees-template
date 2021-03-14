@@ -1,4 +1,4 @@
-\version "2.18.0"
+\version "2.22.0"
 \language "deutsch"
 
 
@@ -83,7 +83,7 @@
  		}
 	}
 
-    % use the following definition for titles with genre
+  % use the following definition for titles with genre
   % bookTitleMarkup = \markup {
 	% 	\fill-line {
 	% 		\line {
@@ -183,7 +183,6 @@ dolceE =    \markup \remarkE "dolce"
 t = \markup { \combine \fontsize #-2 \transparent \number 5 \raise #.6 \draw-line #'(1 . 0) }
 tllur = \markup { \combine \fontsize #-2 \transparent \number 5 \raise #.6 \draw-line #'(1 . 1) }
 l = \markup { \fontsize #-2 \transparent \number 5 }
-fermataMarkdown = \markup { \musicglyph #'"scripts.dfermata" }
 critnote = \markup { \musicglyph #'"pedal.*" }
 trillE = \tweak self-alignment-X #CENTER ^\markup { \hspace #1.5 [ \musicglyph #'"scripts.trill" ] }
 extraNat = \once \override Accidental.restore-first = ##t
@@ -340,9 +339,9 @@ mvTrr = \once \override TextScript.X-offset = #3
 hideTn = \once \override TupletNumber.stencil = ##f
 mvDll = \once \override DynamicText.X-offset = #-3
 scriptOut = \once \override Script.avoid-slur = #'outside
-pao = \partcombineApartOnce
-pa = \partcombineApart
-pd = \partcombineAutomatic
+pao = \once \partCombineApart
+pa = \partCombineApart
+pd = \partCombineAutomatic
 hairpinDashed = \override Hairpin.style = #'dashed-line
 hairpinSolid = \override Hairpin.style = #'solid
 
@@ -476,7 +475,7 @@ bc =
 \layout {
 	\context {
 		\Score
-		\compressFullBarRests
+		\compressEmptyMeasures
 		\override BarNumber.break-visibility = #'#(#f #t #t)
 	}
 	\context {
@@ -579,7 +578,7 @@ bc =
     (if (not (null? label-table))
       (let* ((format-line (lambda (toc-item)
              (let* ((label (car toc-item))
-                    (text  (caddr toc-item))
+                    (text  (cdaddr toc-item))
                     (label-page (and (list? label-table)
                                      (assoc label label-table)))
                     (page (and label-page (cdr label-page))))
@@ -640,7 +639,7 @@ tocSubsection = #(define-music-function
    (if (not (null? label-table))
      (let* ((format-line (lambda (toc-item)
             (let* ((label (car toc-item))
-                   (text  (caddr toc-item))
+                   (text  (cdaddr toc-item))
                    (label-page (and (list? label-table)
                                     (assoc label label-table)))
                    (page (and label-page (cdr label-page))))
