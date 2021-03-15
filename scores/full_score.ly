@@ -3,9 +3,9 @@
 \include "../definitions.ly"
 
 \paper {
-	#(set-paper-size "a4" 'landscape)
+	#(set-paper-size "a4landscape")
 	indent = 1\cm
-  #(define (page-post-process layout pages) (ly:create-ref-file layout pages))
+ 	#(define (page-post-process layout pages) (ly:create-ref-file layout pages))
 	#(define (page-post-process layout pages) (ly:create-toc-file layout pages))
 }
 
