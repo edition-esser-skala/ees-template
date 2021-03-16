@@ -3,7 +3,7 @@
 
 
 \paper {
-	#(set-paper-size "a4" 'portrait)
+	#(set-paper-size "a4")
 	two-sided = ##t
 	top-margin = 1\cm
 	bottom-margin = .5\cm
