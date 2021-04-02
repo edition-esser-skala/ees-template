@@ -1,10 +1,10 @@
 \version "2.22.0"
 
 BassoNotes = {
-	\relative c {
-		\clef bass
+  \relative c {
+    \clef bass
 
-	}
+  }
 }
 
 BassoLyrics = \lyricmode {
@@ -12,10 +12,10 @@ BassoLyrics = \lyricmode {
 }
 
 % BassoNotes = {
-% 	\relative c {
-% 		\clef bass
+%   \relative c {
+%     \clef bass
 %
-% 	}
+%   }
 % }
 %
 % BassoLyrics = \lyricmode {

@@ -89,12 +89,12 @@
 \usepackage{enumitem}
 %use this definition if TOC contains lyrics
 %\setlist[description]{%
-%	labelindent=2em,%
-%	labelwidth=6.5em,%
-%	leftmargin=8.5em,%
-%	labelsep=0pt,
-%	first=\ltseries,%
-%	font=\normalfont\itshape\ltseries%
+%  labelindent=2em,%
+%  labelwidth=6.5em,%
+%  leftmargin=8.5em,%
+%  labelsep=0pt,
+%  first=\ltseries,%
+%  font=\normalfont\itshape\ltseries%
 %}
 \setlist[description]{%
   style=nextline,%
@@ -132,26 +132,26 @@
   \endgroup%
 }
 \def\lyrefpart#1{%
-	\begingroup%
-	\makebox[0pt][l]{\sbseries\color{oldred}\lyrefnumber{#1}}\hspace*{2em}%
-	\makebox[0pt][l]{\sbseries\lyreftitle{#1}}\hspace*{6.5em}%
-	\hfill\sbseries\lyrefpage{#1}%
-	\endgroup%
+  \begingroup%
+  \makebox[0pt][l]{\sbseries\color{oldred}\lyrefnumber{#1}}\hspace*{2em}%
+  \makebox[0pt][l]{\sbseries\lyreftitle{#1}}\hspace*{6.5em}%
+  \hfill\sbseries\lyrefpage{#1}%
+  \endgroup%
 }
 \def\lyrefsection#1{%
-	\begingroup%
-	\makebox[0pt][l]{\color{oldred}\lyrefgenrenumber{#1}}\hspace*{2em}%
-	\makebox[0pt][l]{\ltseries\lyrefgenregenre{#1}}\hspace*{6.5em}%
-	\lyrefgenretitle{#1}\Dotfill\lyrefgenrepage{#1}%
-	\endgroup%
+  \begingroup%
+  \makebox[0pt][l]{\color{oldred}\lyrefgenrenumber{#1}}\hspace*{2em}%
+  \makebox[0pt][l]{\ltseries\lyrefgenregenre{#1}}\hspace*{6.5em}%
+  \lyrefgenretitle{#1}\Dotfill\lyrefgenrepage{#1}%
+  \endgroup%
 }
 \InputIfFileExists{../out/lilypond.ref}{}{\InputIfFileExists{../lilypond.ref}{}{}}
 
 
 \newcommand\fancytitlehead{
-	\headingfont%
-	\fontsize{80}{80}\selectfont\textcolor{black!80}{\@ifundefined{@shortname}{\@lastname}{\@shortname}.}\\[15pt]%
-	\fontsize{60}{60}\selectfont\@ifundefined{@shorttitle}{\@title}{\@shorttitle}.%
+  \headingfont%
+  \fontsize{80}{80}\selectfont\textcolor{black!80}{\@ifundefined{@shortname}{\@lastname}{\@shortname}.}\\[15pt]%
+  \fontsize{60}{60}\selectfont\@ifundefined{@shorttitle}{\@title}{\@shorttitle}.%
 }
 
 
@@ -172,18 +172,18 @@
 
 \def\maketitle{%
 \begin{titlepage}%
-	\Large%
-	{\@titlehead}%
-	\vfill%
-	{\strut\@firstname}\\%
-	{\sbseries\color{oldred}\strut\@lastname}\\%
-	{\strut\@namesuffix}%
-	\vfill%
-	{\sbseries\@title}\\%
-	{\@subtitle}\\[\baselineskip]%
-	{\itshape\@instrumentation}%
-	\vfill%
-	{\itshape\@parts}\hspace*{\fill}\raisebox{0pt}[0pt][0pt]{\includegraphics{ees_logo}}%
+  \Large%
+  {\@titlehead}%
+  \vfill%
+  {\strut\@firstname}\\%
+  {\sbseries\color{oldred}\strut\@lastname}\\%
+  {\strut\@namesuffix}%
+  \vfill%
+  {\sbseries\@title}\\%
+  {\@subtitle}\\[\baselineskip]%
+  {\itshape\@instrumentation}%
+  \vfill%
+  {\itshape\@parts}\hspace*{\fill}\raisebox{0pt}[0pt][0pt]{\includegraphics{ees_logo}}%
 \end{titlepage}%
 }
 
@@ -253,7 +253,7 @@ end
 
 \raisebox{-4mm}{\includegraphics{byncsaeu}}\hspace*{1em}Wolfgang Esser-Skala, 2021
 
-© 2021 by Wolfgang Esser-Skala. This edition is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc-sa/4.0/}. 
+© 2021 by Wolfgang Esser-Skala. This edition is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc-sa/4.0/}.
 
 Music engraving by LilyPond 2.22.0 (\url{http://www.lilypond.org}).\\
 Front matter typeset with Source Sans Pro and Fredericka the Great.
@@ -272,11 +272,11 @@ In general, this edition closely follows the manuscript. Any changes that were i
 \bigskip
 
 \begin{longtable}{lll L{10cm}}
-	\toprule
-	\itshape Mov. & \itshape Bar & \itshape Staff & \itshape Note \\
-	\midrule \endhead
-	
-	\bottomrule
+  \toprule
+  \itshape Mov. & \itshape Bar & \itshape Staff & \itshape Note \\
+  \midrule \endhead
+
+  \bottomrule
 \end{longtable}
 
 
@@ -299,8 +299,8 @@ Wolfgang Esser-Skala}
 %\lyrefsection{firstmovement}
 %
 %\begin{description}
-%	\item[Coro]
-%	Lorem ipsum
+%  \item[Coro]
+%  Lorem ipsum
 %\end{description}
 
 \cleardoublepage
