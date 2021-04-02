@@ -10,10 +10,12 @@ LILY_CMD = lilypond -ddelete-intermediate-files -dno-point-and-click
 
 # dependencies of scores:
 # (a) individual scores (e.g., `make full_score')
-$(scores): %: out/%.pdf
-$(scores:%=out/%.pdf): out/%.pdf: scores/%.ly $(notes:%=notes/%.ly) definitions.ly
-	mkdir -p out
-	$(LILY_CMD) -o out $<
+$(scores): %: tmp/%.pdf
+$(scores:%=tmp/%.pdf): tmp/%.pdf: scores/%.ly \
+                                  $(notes:%=notes/%.ly) \
+                                  definitions.ly
+	mkdir -p tmp
+	$(LILY_CMD) -o tmp $<
 
 # (b) all scores (`make scores')
 .PHONY: scores
@@ -23,21 +25,24 @@ scores: $(scores)
 # dependencies of final scores (i.e., front matter + notes):
 # (a) individual final scores (e.g., `make final/full_score'):
 $(scores:%=final/%): %: %.pdf
-$(scores:%=final/%.pdf): final/%.pdf: front_matter/critical_report.tex out/%.pdf
-	mkdir -p final
-	for i in 1 2; do \
-	  cd front_matter; \
-	  lualatex -output-directory=../final -jobname=$* critical_report.tex $* ;\
-  done
-	rm final/$*.aux
-	rm final/$*.log
+$(scores:%=final/%.pdf): final/%.pdf: front_matter/critical_report.tex tmp/%.pdf
+	latexmk -cd \
+	        -lualatex \
+	        -lualatex="lualatex %O %S $*" \
+	        -outdir=../final \
+	        -jobname=$* \
+	        front_matter/critical_report.tex
+	latexmk -c \
+	        -outdir=final \
+	        -jobname=$* \
+	        front_matter/critical_report.tex
 
 # (b) all final scores (`make final/scores'):
 .PHONY: final/scores
 final/scores: $(scores:%=final/%)
 
 archive:
-	zip $(zipname).zip README.md Makefile *.ly \
+	zip $(zipname).zip LICENSE.txt README.md Makefile *.ly \
 	notes/*.ly scores/*.ly \
 	front_matter/byncsaeu.pdf front_matter/ees_logo.pdf front_matter/*.tex
 
