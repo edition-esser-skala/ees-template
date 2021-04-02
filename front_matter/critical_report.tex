@@ -17,10 +17,10 @@
   pagenumberformat=\itshape
 ]{tocline}{part}
 
-% use commented values if there are no parts
+% use commented values if there are parts
 \DeclareTOCStyleEntry[
-  indent=2em,%0pt,
-  beforeskip=-\baselineskip,%0pt,
+  indent=0pt,%2em,
+  beforeskip=0pt,%-\baselineskip,
   entrynumberformat=\textcolor{oldred},
   numwidth=2em,
   linefill=\hfill,
@@ -38,11 +38,12 @@
   pagenumberformat=\ltseries
 ]{tocline}{subsection}
 
+
 \usepackage{polyglossia}
 \setdefaultlanguage{english}
 
-\usepackage{fontspec}
 
+\usepackage{fontspec}
 \setmainfont{Source Sans Pro}[
   ItalicFont = Source Sans Pro Italic,
   BoldFont = Source Sans Pro Bold,
@@ -58,27 +59,36 @@
 \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
 \DeclareTextFontCommand{\textlt}{\ltseries}
 \DeclareTextFontCommand{\textsb}{\sbseries}
-
 \newfontfamily\headingfont{Fredericka the Great}
+
 
 \usepackage[pass]{geometry}
 \newgeometry{twoside,inner=20mm,outer=40mm,top=20mm,bottom=40mm}
 
+
 \usepackage{url}
 \urlstyle{same}
+
 
 \usepackage{microtype}
 \microtypesetup{verbose=silent}
 
+
 \usepackage{booktabs,array,longtable}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{L}[1]{%
+  >{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}%
+}
+
 
 \usepackage{graphicx}
+
 
 \usepackage{xcolor}
 \definecolor{oldred}{rgb}{.8313,0,0}
 
+
 \usepackage{pdfpages}
+
 
 \usepackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
@@ -88,14 +98,14 @@
 
 \usepackage{enumitem}
 %use this definition if TOC contains lyrics
-%\setlist[description]{%
+% \setlist[description]{%
 %  labelindent=2em,%
 %  labelwidth=6.5em,%
 %  leftmargin=8.5em,%
 %  labelsep=0pt,
 %  first=\ltseries,%
 %  font=\normalfont\itshape\ltseries%
-%}
+% }
 \setlist[description]{%
   style=nextline,%
   leftmargin=2em,%
@@ -145,13 +155,17 @@
   \lyrefgenretitle{#1}\Dotfill\lyrefgenrepage{#1}%
   \endgroup%
 }
-\InputIfFileExists{../out/lilypond.ref}{}{\InputIfFileExists{../lilypond.ref}{}{}}
+\InputIfFileExists{../tmp/lilypond.ref}{}{\InputIfFileExists{../lilypond.ref}{}{}}
 
 
 \newcommand\fancytitlehead{
   \headingfont%
-  \fontsize{80}{80}\selectfont\textcolor{black!80}{\@ifundefined{@shortname}{\@lastname}{\@shortname}.}\\[15pt]%
-  \fontsize{60}{60}\selectfont\@ifundefined{@shorttitle}{\@title}{\@shorttitle}.%
+  \fontsize{80}{80}\selectfont%
+  \textcolor{black!80}{%
+    \makebox[0pt][l]{\@ifundefined{@shortname}{\@lastname}{\@shortname}.}%
+  }\\[15pt]%
+  \fontsize{60}{60}\selectfont%
+  \makebox[0pt][l]{\@ifundefined{@shorttitle}{\@title}{\@shorttitle}.}%
 }
 
 
@@ -160,13 +174,13 @@
 \def\shortname#1{\def\@shortname{#1}}
 \def\shorttitle#1{\def\@shorttitle{#1}}
 \def\namesuffix#1{\def\@namesuffix{#1}}
-\def\instrumentation#1{\def\@instrumentation{#1}}
+\def\scoring#1{\def\@scoring{#1}}
 \def\parts#1{\def\@parts{#1}}
 
 \firstname{\relax}
 \lastname{\relax}
 \namesuffix{\relax}
-\instrumentation{\relax}
+\scoring{\relax}
 \parts{\relax}
 
 
@@ -181,7 +195,7 @@
   \vfill%
   {\sbseries\@title}\\%
   {\@subtitle}\\[\baselineskip]%
-  {\itshape\@instrumentation}%
+  {\itshape\@scoring}%
   \vfill%
   {\itshape\@parts}\hspace*{\fill}\raisebox{0pt}[0pt][0pt]{\includegraphics{ees_logo}}%
 \end{titlepage}%
@@ -230,9 +244,6 @@ end
 
 
 
-
-
-
 \begin{document}
 \frenchspacing
 
@@ -243,7 +254,7 @@ end
 \title{xxx}
 \shorttitle{xxx}
 \subtitle{xxx}
-\instrumentation{S, A, T, B (solo), S, A, T, B (coro), 2 ob, 2 clno, timp, 2 vl, vla, b, org}
+\scoring{S, A, T, B (solo), S, A, T, B (coro), 2 ob, 2 clno, timp, 2 vl, vla, b, org}
 \maketitle
 
 
@@ -258,12 +269,12 @@ end
 Music engraving by LilyPond 2.22.0 (\url{http://www.lilypond.org}).\\
 Front matter typeset with Source Sans Pro and Fredericka the Great.
 
-\textit{First version, March 2021}
+\textit{First version, April 2021}
 
 \vspace*{2cm}
 
 \ifprintreport
-\chapter*{Critical Report.}
+\chapter*{Critical Report}
 
 This edition bases upon a copy in the archive of the Dresden Hofkapelle, which has been digitized by the Saxon State Library – State and University Library Dresden. The digital version of the manuscript is available at \url{http://xxx} (siglum xxx; see also RISM ID xxx).
 
@@ -290,7 +301,7 @@ Wolfgang Esser-Skala}
 \chapter*{Contents.}
 
 % use this line for the default TOC
-\InputIfFileExists{../out/lilypond.toc}{}{\InputIfFileExists{../lilypond.toc}{}{}}
+\InputIfFileExists{../tmp/lilypond.toc}{}{\InputIfFileExists{../lilypond.toc}{}{}}
 
 % use the following lines for TOC with lyrics
 
@@ -307,7 +318,7 @@ Wolfgang Esser-Skala}
 \fi
 
 \iftemplate
-\includepdf[pages=-]{../out/\lypdfname.pdf}
+\includepdf[pages=-]{../tmp/\lypdfname.pdf}
 \fi
 
 \end{document}
