@@ -371,6 +371,11 @@ parOff = {
       (list left-par (cadr par-list))))
 }
 
+markDaCapo = {
+  \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
+  \mark \markup { \remark "da capo" }
+}
+
 
 
 % modify the Scheme function 'format-bass-figure'
