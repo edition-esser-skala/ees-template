@@ -3,7 +3,7 @@
 \include "../definitions.ly"
 
 \paper {
-  indent = 2\cm
+  indent = 1\cm
   top-margin = 1.5\cm
   system-separator-markup = ##f
   system-system-spacing =
@@ -58,6 +58,7 @@
       number = "1"
       title = "F I R S T"
     }
+    \paper { indent = 2\cm }
     \score {
       <<
         \new StaffGroup <<
