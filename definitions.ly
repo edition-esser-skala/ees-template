@@ -333,6 +333,14 @@ twofourtime = {
     #'((end . (((1 . 16) . (4 4)))))
   }
 
+twotwotime = {
+  \overrideTimeSignatureSettings
+    2/2
+    1/4
+    #'(4)
+    #'((end . (((1 . 16) . (4 4 4 4)) ((1 . 8) . (4 4)))))
+  }
+
 mvTr = \once \override TextScript.X-offset = #2
 mvTrh = \once \override TextScript.X-offset = #2.5
 mvTrr = \once \override TextScript.X-offset = #3
