@@ -3,7 +3,7 @@
 \include "../definitions.ly"
 
 \paper {
-  indent = 1.5\cm
+  indent = 1\cm
   top-margin = 1\cm
   system-separator-markup = ##f
   system-system-spacing =
