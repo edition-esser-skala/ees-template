@@ -1,0 +1,24 @@
+composer: 
+title: 
+id: 
+genre: 
+scoring: 
+sources:
+  1:
+    siglum: A-Ed
+    shelfmark: G 124
+    type: manuscript copy
+    date: unknown
+    rism: 600038352
+    url: http://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/301.html
+  2:
+    siglum: D-NATk
+    shelfmark: NA/SP (A-5)
+    type: manuscript copy
+    date: 1840–1860
+    rism: 455039712
+    url: https://mirador.acdh.oeaw.ac.at/musikarchivspitz/D-NATk_A5/
+github: 
+imslp: 
+notes:
+
