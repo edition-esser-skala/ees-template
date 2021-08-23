@@ -71,25 +71,25 @@
         \new ChoirStaff <<
           \new Staff {
             \set Staff.instrumentName = "Soprano"
-            \new Voice = "Soprano" { \dynamicUp \xxxSopranoNotes }
+            \new Voice = "Soprano" { \dynamicUp \xxxSoprano }
           }
           \new Lyrics \lyricsto Soprano \xxxSopranoLyrics
 
           \new Staff {
             \set Staff.instrumentName = "Alto"
-            \new Voice = "Alto" { \dynamicUp \xxxAltoNotes }
+            \new Voice = "Alto" { \dynamicUp \xxxAlto }
           }
           \new Lyrics \lyricsto Alto \xxxAltoLyrics
 
           \new Staff {
             \set Staff.instrumentName = "Tenore"
-            \new Voice = "Tenore" { \dynamicUp \xxxTenoreNotes }
+            \new Voice = "Tenore" { \dynamicUp \xxxTenore }
           }
           \new Lyrics \lyricsto Tenore \xxxTenoreLyrics
 
           \new Staff {
             \set Staff.instrumentName = "Basso"
-            \new Voice = "Basso" { \dynamicUp \xxxBassoNotes }
+            \new Voice = "Basso" { \dynamicUp \xxxBasso }
           }
           \new Lyrics \lyricsto Basso \xxxBassoLyrics
         >>

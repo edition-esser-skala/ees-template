@@ -82,7 +82,7 @@
             \set Staff.instrumentName = \SopranoIncipit
             \override Staff.InstrumentName.self-alignment-Y = ##f
             \override Staff.InstrumentName.self-alignment-X = #RIGHT
-            \new Voice = "Soprano" { \dynamicUp \xxxSopranoNotes }
+            \new Voice = "Soprano" { \dynamicUp \xxxSoprano }
           }
           \new Lyrics \lyricsto Soprano \xxxSopranoLyrics
 
@@ -90,7 +90,7 @@
             \set Staff.instrumentName = \AltoIncipit
             \override Staff.InstrumentName.self-alignment-Y = ##f
             \override Staff.InstrumentName.self-alignment-X = #RIGHT
-            \new Voice = "Alto" { \dynamicUp \xxxAltoNotes }
+            \new Voice = "Alto" { \dynamicUp \xxxAlto }
           }
           \new Lyrics \lyricsto Alto \xxxAltoLyrics
 
@@ -98,13 +98,13 @@
             \set Staff.instrumentName = \TenoreIncipit
             \override Staff.InstrumentName.self-alignment-Y = ##f
             \override Staff.InstrumentName.self-alignment-X = #RIGHT
-            \new Voice = "Tenore" { \dynamicUp \xxxTenoreNotes }
+            \new Voice = "Tenore" { \dynamicUp \xxxTenore }
           }
           \new Lyrics \lyricsto Tenore \xxxTenoreLyrics
 
           \new Staff {
             \set Staff.instrumentName = "Basso"
-            \new Voice = "Basso" { \dynamicUp \xxxBassoNotes }
+            \new Voice = "Basso" { \dynamicUp \xxxBasso }
           }
           \new Lyrics \lyricsto Basso \xxxBassoLyrics
         >>
