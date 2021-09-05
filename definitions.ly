@@ -261,6 +261,8 @@ rfzE = \dynScript "rfz" ##t
 
 piuF   = \dynScriptPrefix "più"  "f" ##f
 piuFE  = \dynScriptPrefix "più"  "f" ##t
+piuP   = \dynScriptPrefix "più"  "p" ##f
+piuPE  = \dynScriptPrefix "più"  "p" ##t
 pocoF  = \dynScriptPrefix "poco" "f" ##f
 pocoFE = \dynScriptPrefix "poco" "f" ##t
 pocoP  = \dynScriptPrefix "poco" "p" ##f
