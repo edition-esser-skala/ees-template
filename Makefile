@@ -4,7 +4,6 @@ notes = ob1 ob2 clno1 clno2 timp vl1 vl2 vla S A T B org
 scores = full_score ob1 ob2 ottoni vl1 vl2 vla coro b org
 
 # general definitions
-zipname = $(project:%=%_engraving_files)
 .DEFAULT_GOAL := info
 LILY_CMD = lilypond -ddelete-intermediate-files -dno-point-and-click
 
@@ -13,9 +12,10 @@ LILY_CMD = lilypond -ddelete-intermediate-files -dno-point-and-click
 $(scores): %: tmp/%.pdf
 $(scores:%=tmp/%.pdf): tmp/%.pdf: scores/%.ly \
                                   $(notes:%=notes/%.ly) \
-                                  definitions.ly
+                                  definitions.ly \
+                                  CHANGELOG.md
 	mkdir -p tmp
-	$(LILY_CMD) -o tmp $<
+	$(LILY_CMD) -o tmp '$(shell realpath $<)'
 
 # (b) all scores (`make scores')
 .PHONY: scores
@@ -41,20 +41,14 @@ $(scores:%=final/%.pdf): final/%.pdf: front_matter/critical_report.tex tmp/%.pdf
 .PHONY: final/scores
 final/scores: $(scores:%=final/%)
 
-archive:
-	zip $(zipname).zip LICENSE.txt README.md Makefile *.ly \
-	notes/*.ly scores/*.ly \
-	front_matter/byncsaeu.pdf front_matter/ees_logo.pdf front_matter/*.tex
-
 space := $(subst ,, )
 sep := ", "
 info:
 	@color=`tput setaf 6; tput bold`; \
 	reset=`tput sgr0`; \
-	echo "Specify one of the following $${color}targets$${reset} to create:\n" \
-	"* $${color}$(subst $(space),$(sep),$(scores))$${reset}: individual scores (LilyPond output only)\n" \
-	"* $${color}$(subst $(space),$(sep),$(scores:%=final/%))$${reset}: individual final scores (LilyPond output + front matter)\n" \
-	"* $${color}scores$${reset}: all scores\n" \
-	"* $${color}final/scores$${reset}: all final scores\n" \
-	"* $${color}archive$${reset}: ZIP file with all sources\n" \
-	"* $${color}info$${reset}: prints this message"
+	echo "Specify one of the following $${color}targets$${reset} to create:"; \
+	echo "* $${color}$(subst $(space),$(sep),$(scores))$${reset}: individual scores (LilyPond output only)"; \
+	echo "* $${color}scores$${reset}: all scores"; \
+	echo "* $${color}$(subst $(space),$(sep),$(scores:%=final/%))$${reset}: individual final scores (LilyPond output + front matter)"; \
+	echo "* $${color}final/scores$${reset}: all final scores"; \
+	echo "* $${color}info$${reset}: prints this message"

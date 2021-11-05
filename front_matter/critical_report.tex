@@ -1,7 +1,12 @@
 \documentclass[parskip=full]{scrreprt}
 
+\setcounter{secnumdepth}{-1}
 \RedeclareSectionCommand[pagestyle=plain,afterskip=10pt plus 1pt]{chapter}
+\RedeclareSectionCommand[afterskip=0pt plus 1pt,runin=false]{section}
+\RedeclareSectionCommand[beforeskip=0pt,afterskip=0pt]{subsection}
 \setkomafont{chapter}{\mdseries\headingfont\fontsize{40}{40}\selectfont\color{black!80}}
+\setkomafont{section}{\normalfont\sbseries\large}
+\setkomafont{subsection}{\normalfont\itshape}
 \setkomafont{pageheadfoot}{\normalsize}
 
 \def\pnumbox#1{#1\hspace*{8cm}}
@@ -60,13 +65,14 @@
 \DeclareTextFontCommand{\textlt}{\ltseries}
 \DeclareTextFontCommand{\textsb}{\sbseries}
 \newfontfamily\headingfont{Fredericka the Great}
+\newfontfamily\fontawesome{FontAwesome}
 
 
 \usepackage[pass]{geometry}
 \newgeometry{twoside,inner=20mm,outer=40mm,top=20mm,bottom=40mm}
 
 
-\usepackage{url}
+\usepackage[hyphens]{url}
 \urlstyle{same}
 
 
@@ -96,6 +102,7 @@
 \cfoot[\thepage]{\thepage}
 \pagenumbering{roman}
 
+
 \usepackage{enumitem}
 %use this definition if TOC contains lyrics
 % \setlist[description]{%
@@ -113,6 +120,13 @@
   font=\normalfont%
 }
 \def\lyrefitem#1{\item[\lyref{#1}]}
+
+
+\usepackage[cacheDir=/tmp/latex-markdown,smartEllipses]{markdown}
+
+
+\usepackage{datetime2}
+\DTMsetstyle{iso}
 
 
 \makeatletter
@@ -176,12 +190,18 @@
 \def\namesuffix#1{\def\@namesuffix{#1}}
 \def\scoring#1{\def\@scoring{#1}}
 \def\parts#1{\def\@parts{#1}}
+\def\repository#1{\def\userepository{{\fontawesome}~#1}}
+\def\version#1{\def\useversion{#1}}
+\def\date#1{\DTMsavedate{compiled}{#1}}
 
 \firstname{\relax}
 \lastname{\relax}
 \namesuffix{\relax}
 \scoring{\relax}
 \parts{\relax}
+\repository{\relax}
+\version{\relax}
+\date{2021-01-01}
 
 
 \def\maketitle{%
@@ -197,7 +217,7 @@
   {\@subtitle}\\[\baselineskip]%
   {\itshape\@scoring}%
   \vfill%
-  {\itshape\@parts}\hspace*{\fill}\raisebox{0pt}[0pt][0pt]{\includegraphics{ees_logo}}%
+  {\itshape\@parts}\hspace*{\fill}\raisebox{0pt}[0pt][0pt]{\includegraphics[scale=1.25]{logo_full}}%
 \end{titlepage}%
 }
 
@@ -255,6 +275,9 @@ end
 \shorttitle{xxx}
 \subtitle{xxx}
 \scoring{S, A, T, B (solo), S, A, T, B (coro), 2 ob, 2 clno, timp, 2 vl, vla, b, org}
+\repository{edition-esser-skala/}
+\version{1.0.0}
+\date{2021-11-01}
 \maketitle
 
 
@@ -262,14 +285,15 @@ end
 
 \vspace*{\fill}
 
-\raisebox{-4mm}{\includegraphics{byncsaeu}}\hspace*{1em}Wolfgang Esser-Skala, 2021
+\raisebox{-4mm}{\includegraphics{byncsaeu}}\hspace*{1em}Edition Esser-Skala, \DTMfetchyear{compiled}
 
-© 2021 by Wolfgang Esser-Skala. This edition is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc-sa/4.0/}.
+© \DTMfetchyear{compiled} by Edition Esser-Skala. This edition is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit \url{https://creativecommons.org/licenses/by-nc-sa/4.0/}.
 
-Music engraving by LilyPond 2.22.0 (\url{http://www.lilypond.org}).\\
-Front matter typeset with Source Sans Pro and Fredericka the Great.
+Music engraving by LilyPond 2.22.1 (\url{https://www.lilypond.org}).\\
+Front matter typeset with Source Sans and Fredericka the Great.
 
-\textit{First version, July 2021}
+\userepository\\
+\textit{v\useversion, \DTMusedate{compiled}}
 
 \vspace*{2cm}
 
@@ -291,11 +315,14 @@ In general, this edition closely follows the manuscript. Any changes that were i
 \end{longtable}
 
 
-This edition has been compiled and checked with utmost diligence. Nevertheless, errors and mistakes cannot be totally excluded. Please report any errors and mistakes to \url{wolfgang@esser-skala.at} or create an issue or pull request on the edition’s GitHub page \url{https://github.com/skafdasschaf/repository}. Your help will be greatly appreciated.
+This edition has been compiled and checked with utmost diligence. Nevertheless, errors and mistakes cannot be totally excluded. Please report any errors and mistakes to \url{edition@esser-skala.at} or create an issue or pull request in the edition’s GitHub repository \userepository. Your help will be greatly appreciated.
 
 \bigskip
-\textit{Koppl, July 2021\\
+\textit{Koppl, \DTMenglishmonthname{\DTMfetchmonth{compiled}} \DTMfetchyear{compiled}\\
 Wolfgang Esser-Skala}
+
+\cleardoublepage
+\markdownInput{../CHANGELOG.md}
 
 \cleardoublepage
 \chapter*{Contents}
