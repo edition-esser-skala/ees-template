@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 - DATE
+## 1.0.0 – DATE
 
 ### Added
 
