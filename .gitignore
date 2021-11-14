@@ -9,8 +9,8 @@ main.pdf
 *.fdb_latexmk
 *.fls
 *.log
+*.macros
 *.midi
 *.ps
 *.ref
 *.toc
-*.zip

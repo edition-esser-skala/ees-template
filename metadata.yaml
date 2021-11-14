@@ -1,24 +1,23 @@
-composer: 
-title: 
-id: 
-genre: 
-scoring: 
+composer:
+title:
+genre:
+scoring:
 sources:
-  1:
-    siglum: A-Ed
-    shelfmark: G 124
-    type: manuscript copy
-    date: unknown
-    rism: 600038352
-    url: http://dommusikarchiv.martinus.at/site/werkverzeichnis/gallery/301.html
-  2:
-    siglum: D-NATk
-    shelfmark: NA/SP (A-5)
-    type: manuscript copy
-    date: 1840–1860
-    rism: 455039712
-    url: https://mirador.acdh.oeaw.ac.at/musikarchivspitz/D-NATk_A5/
-github: 
-imslp: 
-notes:
-
+  B1:
+    siglum:
+    shelfmark:
+    date:
+    rism:
+    url:
+    primary: true
+imslp:
+parts:
+  ob1: Oboe I
+  ob2: Oboe II
+  ottoni: Clarino I, II in C\\Timpani in C–G
+  vl1: Violino I
+  vl2: Violino II
+  vla: Viola
+  coro: Coro
+  org: Organo
+  b: Bassi
