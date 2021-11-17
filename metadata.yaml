@@ -9,15 +9,7 @@ sources:
     date:
     rism:
     url:
-    primary: true
+    principal: true
 imslp:
 parts:
-  ob1: Oboe I
-  ob2: Oboe II
   ottoni: Clarino I, II in C\\Timpani in C–G
-  vl1: Violino I
-  vl2: Violino II
-  vla: Viola
-  coro: Coro
-  org: Organo
-  b: Bassi
