@@ -11,6 +11,7 @@ main.pdf
 *.log
 *.macros
 *.midi
+*.out
 *.ps
 *.ref
 *.toc
