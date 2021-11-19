@@ -1,38 +1,13 @@
 \version "2.22.0"
 
 \include "../definitions.ly"
-
-\paper {
-  #(set-paper-size "a4landscape")
-  top-margin = 1\cm
-  bottom-margin = .5\cm
-  outer-margin = 2\cm
-  inner-margin = 1.5\cm
-  indent = 1\cm
-  #(define (page-post-process layout pages) (ly:create-toc-file layout pages))
-  #(define (page-post-process layout pages) (ly:create-ref-file layout pages))
-}
-
-#(set-global-staff-size 15.87)
+\include "score_settings/full-score.ly"
 
 \book {
   \bookpart {
-    \paper { evenHeaderMarkup = {} oddHeaderMarkup = {} }
-    \partTitle "1" "F I R S T   P A R T"
-    \tocPart "1" "First Part"
-    \partMark
-    \pageBreak
-    \markup \null
-  }
-  \bookpart {
-    \header {
-      genre = "C H O R A L"
-      number = "1.1"
-      title = "F I R S T"
-    }
+    \section "1" "First"
+    \addTocEntry
     \paper { indent = 3\cm }
-    \tocSection "1.1" "First"
-    \tocLabelLong "label" "1.1" "Choral" "First"
     \score {
       <<
         \new StaffGroup <<
