@@ -8,6 +8,7 @@
 \book {
   \bookpart {
     \section "1" "First"
+    \addTocEntry
     \paper { indent = 2\cm }
     \score {
       <<

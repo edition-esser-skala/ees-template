@@ -7,6 +7,7 @@
 \book {
   \bookpart {
     \section "1" "First"
+    \addTocEntry
     \paper { indent = 2\cm }
     \score {
       <<
@@ -19,6 +20,7 @@
   }
   \bookpart {
     \section "2" "Second"
+    \addTocEntry
     \score {
       <<
         \new Staff { \yyyOrgano }
