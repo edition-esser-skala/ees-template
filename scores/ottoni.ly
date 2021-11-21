@@ -14,7 +14,7 @@
       <<
         \new StaffGroup <<
           \new GrandStaff <<
-            \set GrandStaff.instrumentName = \markup \center-column { "Clarino" "in C" }
+            \set GrandStaff.instrumentName = \transposedName "Clarino" "C" ""
             \new Staff {
               \set Staff.instrumentName = "I"
               \xxxClarinoI
@@ -26,7 +26,7 @@
           >>
         >>
         \new Staff {
-          \set Staff.instrumentName = \markup \center-column { "Timpani" "in C–G" }
+          \set Staff.instrumentName = \transposedTimp "C" "" "G" ""
           \xxxTimpani
         }
       >>

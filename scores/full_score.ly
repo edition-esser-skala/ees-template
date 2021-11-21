@@ -25,13 +25,13 @@
         >>
         \new StaffGroup <<
           \new Staff <<
-            \set Staff.instrumentName = \markup \center-column { "Clarino I, II" "in C" }
+            \set Staff.instrumentName = \transposedName "Clarino I, II" "C" ""
             % \transpose c c
             \partCombine \xxxClarinoI \xxxClarinoII
           >>
         >>
         \new Staff {
-          \set Staff.instrumentName = \markup \center-column { "Timpani" "in C–G" }
+          \set Staff.instrumentName = \transposedTimp "C" "" "G" ""
           % \transpose c c
           \xxxTimpani
         }

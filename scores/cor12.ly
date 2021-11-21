@@ -13,6 +13,7 @@
       <<
         \new StaffGroup <<
           \new GrandStaff <<
+            \set GrandStaff.instrumentName = \transposedName "Corno" "C" ""
             \new Staff {
               \set Staff.instrumentName = "I"
               \xxxCornoI
