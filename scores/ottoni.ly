@@ -21,7 +21,7 @@
             }
             \new Staff {
               \set Staff.instrumentName = "II"
-              \CxxxlarinoII
+              \xxxClarinoII
             }
           >>
         >>
