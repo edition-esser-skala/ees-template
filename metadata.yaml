@@ -1,8 +1,11 @@
 composer:
+  last:
+  first:
 title:
 id:
 genre:
 scoring:
+license: cc-by-sa-4.0
 sources:
   B1:
     siglum:
@@ -10,6 +13,7 @@ sources:
     date:
     rism:
     url:
+    license:
     principal: true
 imslp:
 parts:
