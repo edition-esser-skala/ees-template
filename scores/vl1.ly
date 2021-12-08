@@ -20,6 +20,7 @@
   }
   \bookpart {
     \section "2" "Second"
+    \addTocEntry
     \score {
       <<
         \new Staff { \yyyViolinoI }
