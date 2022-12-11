@@ -27,7 +27,7 @@
           \new Staff <<
             \set Staff.instrumentName = \transposedName "Clarino I, II" "C" ""
             % \transpose c c
-            \partCombine \xxxClarinoI \xxxClarinoII
+            \partCombine #'(0 . 10) \xxxClarinoI \xxxClarinoII
           >>
         >>
         \new Staff {
