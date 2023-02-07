@@ -3,6 +3,7 @@
 #(define option-movement-title-format "number-title")
 #(define option-print-all-bar-numbers #t)
 \include "ees.ly"
+\include "ees_articulate.ly"
 
 
 tempoX = \tempoMarkup "X"
