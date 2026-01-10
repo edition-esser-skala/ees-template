@@ -8,3 +8,4 @@ on:
 jobs:
   engrave_scores:
     uses: edition-esser-skala/ees-tools/.github/workflows/engrave-and-release.yaml@main
+    secrets: inherit
